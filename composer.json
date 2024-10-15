@@ -1,0 +1,75 @@
+{
+    "name": "php-junior/laravel-xml",
+    "description": "A simple XML to Array converter for Laravel",
+    "keywords": [
+        "php-junior",
+        "laravel-xml",
+        "xml",
+        "laravel",
+        "xml-to-array",
+        "array-to-xml"
+    ],
+    "homepage": "https://github.com/PHPJunior/laravel-xml",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Nyi Nyi Lwin",
+            "email": "nyinyilwin1992@hotmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^10.0||^11.0",
+        "ext-simplexml": "*",
+        "ext-libxml": "*",
+        "ext-dom": "*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.5",
+        "phpunit/phpunit": "^10.5|^11.0.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpJunior\\LaravelXml\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PhpJunior\\LaravelXml\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "@build",
+            "@php vendor/bin/testbench serve --ansi"
+        ],
+        "lint": [
+            "@php vendor/bin/phpstan analyse --verbose --ansi"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PhpJunior\\LaravelXml\\LaravelXmlServiceProvider"
+            ],
+            "aliases": {
+                "LaravelXml": "PhpJunior\\LaravelXml\\LaravelXmlFacade"
+            }
+        }
+    }
+}
