@@ -1,5 +1,8 @@
 # Simple XML to Array Converter
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/php-junior/laravel-xml.svg?style=flat-square)](https://packagist.org/packages/php-junior/laravel-xml)
+[![Total Downloads](https://img.shields.io/packagist/dt/php-junior/laravel-xml.svg?style=flat-square)](https://packagist.org/packages/php-junior/laravel-xml)
+
 This package is a simple XML to Array converter for Laravel.
 
 ## Installation
