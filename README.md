@@ -58,6 +58,30 @@ $xml = Arr::toXml($data, 'user', ['bio*']);
     <bio04><![CDATA[This is a <strong>bio04</strong>]]></bio04>
 </user>
 
+// multi-dimensional array
+Arr::toXml([
+    'user' => [
+        [
+            'name' => 'User',
+            'email' => 'user@user.com'
+        ],
+        [
+            'name' => 'User 2',
+            'email' => 'user2@user.com'
+        ],
+    ]
+], 'users');
+<users>
+    <user>
+        <name>User</name>
+        <email>user@user.com</email>
+    </user>
+    <user>
+        <name>User 2</name>
+        <email>user2@user.com</email>
+    </user>
+</users>
+
 // xml to array
 $data = Arr::fromXml($xml);
 [

@@ -2,6 +2,7 @@
 
 namespace PhpJunior\LaravelXml;
 
+use DOMDocument;
 use SimpleXMLElement;
 
 class LaravelXml
@@ -17,7 +18,14 @@ class LaravelXml
         $cdataKeys = (array) $cdataKeys;
         $xmlData = new SimpleXMLElement("<?xml version=\"1.0\" encoding=\"utf-8\" ?><$rootElement></$rootElement>");
         self::arrayToXml($data, $xmlData, $cdataKeys);
-        return $xmlData->asXML();
+
+        // Format the XML with line breaks and indentation
+        $dom = new DOMDocument('1.0', 'utf-8');
+        $dom->preserveWhiteSpace = false;
+        $dom->formatOutput = true;
+        $dom->loadXML($xmlData->asXML());
+
+        return $dom->saveXML();
     }
 
     /**
