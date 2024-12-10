@@ -73,8 +73,12 @@ class LaravelXml
     {
         if (self::isNumericArray($value)) {
             foreach ($value as $subValue) {
-                $subNode = $xmlData->addChild($key);
-                self::arrayToXml($subValue, $subNode, $cdataKeys);
+                if (is_array($subValue)) {
+                    $subNode = $xmlData->addChild($key);
+                    self::arrayToXml($subValue, $subNode, $cdataKeys);
+                } else {
+                    $xmlData->addChild($key, htmlspecialchars($subValue, ENT_QUOTES | ENT_XML1, 'UTF-8'));
+                }
             }
         } else {
             $subNode = $xmlData->addChild($key);

@@ -112,10 +112,6 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 If you discover any security related issues, please email nyinyilwin1992@hotmail.com instead of using the issue tracker.
 
-## Credits
-
--   [Nyi Nyi Lwin](https://github.com/PHPJunior)
-
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.

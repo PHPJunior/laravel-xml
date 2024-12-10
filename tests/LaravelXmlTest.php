@@ -60,6 +60,20 @@ class LaravelXmlTest extends TestCase
         $this->assertStringContainsString('<bio04><![CDATA[This is a <strong>bio04</strong>]]></bio04>', $xml);
     }
 
+    public function testArrayToXmlNumericArrayValue()
+    {
+        $data = [
+            'code' => [
+                'A001',
+                'A002',
+            ]
+        ];
+
+        $xml = Arr::toXml($data, 'codes');
+        $this->assertStringContainsString('<code>A001</code>', $xml);
+        $this->assertStringContainsString('<code>A002</code>', $xml);
+    }
+
     public function testXmlToArray()
     {
         $xml = '<?xml version="1.0" encoding="utf-8"?>
